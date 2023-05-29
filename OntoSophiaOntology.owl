@@ -7,9 +7,9 @@
 
 <http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275> a owl:Ontology ;
 	<http://purl.org/dc/elements/1.1/creator> "Ioanna Kyvernitou, Mathieu d'Aquin, Marie-Louise Coolahan"^^xsd:string ;
+	<http://purl.org/dc/elements/1.1/description> "The 'OntoSophia' ontology is written in OWL 2 DL. Its scope is to enable the formal characterisation of propositions, arguments, and quoted elements within the argumentative discussion in philosophical texts. Its structure follows the conceptual division between abstract arguments, abstract propositions and their expressions in texts, aiming to facilitate the representation of this division. This division enables to capture the cases where a restatement of an argument or proposition or a reference to the same argument or proposition occurs."^^xsd:string ;
 	rdfs:comment ""@en ;
 	<http://purl.org/dc/elements/1.1/title> "The 'OntoSophia' ontology"^^xsd:string ;
-	<http://purl.org/dc/elements/1.1/description> "The 'OntoSophia' ontology is written in OWL 2 DL.Its scope is to enable the formal characterization of propositions, arguments, and quoted elements within the argumentative discussion in philosophical texts. Its structure follows the conceptual division between abstract arguments, abstract propositions and their expressions in texts, aiming to facilitate the representation of this division. This division enables to capture the cases where a restatement of an argument or proposition or a reference to the same argument or proposition occurs."^^xsd:string ;
 	<http://purl.org/dc/elements/1.1/date> "2018-05-18"^^xsd:string .
 # 
 # 
@@ -44,12 +44,12 @@
 <http://purl.org/dc/elements/1.1/subject> a owl:ObjectProperty ;
 	rdfs:domain :Argument , :Proposition ;
 	rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> ;
-	<http://purl.org/dc/terms/description> "Reused property from the Dublin Core Metadata Initiative to capture the subject of Propositions and Arguments."@en .
+	rdfs:comment "Reused property from the Dublin Core Metadata Initiative to capture the subject of Propositions and Arguments."@en .
 # 
 # http://purl.org/spar/cito/cites
 
 <http://purl.org/spar/cito/cites> a owl:ObjectProperty ;
-	<http://purl.org/dc/terms/description> """Reused property from CiTO (http://purl.org/spar/cito/cites):The citing entity cites the cited entity, either directly and explicitly (as in the reference list of a journal article), indirectly (e.g. by citing a more recent paper by the same group on the same topic), or implicitly (e.g. as in artistic quotations or parodies, or in cases of plagiarism).
+	rdfs:comment """Reused property from CiTO (http://purl.org/spar/cito/cites):The citing entity cites the cited entity, either directly and explicitly (as in the reference list of a journal article), indirectly (e.g. by citing a more recent paper by the same group on the same topic), or implicitly (e.g. as in artistic quotations or parodies, or in cases of plagiarism).
 https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 	rdfs:label "cites"@en .
 # 
@@ -113,7 +113,7 @@ https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 # http://purl.org/spar/deo/DiscourseElement
 
 <http://purl.org/spar/deo/DiscourseElement> a owl:Class ;
-	<http://purl.org/dc/terms/description> """Reused class from the Discourse Elements Ontology (DEO) to represent the document part of the resource which carries out a rhetorical function.
+	rdfs:comment """Reused class from the Discourse Elements Ontology (DEO) to represent the document part of the resource which carries out a rhetorical function.
 
 https://sparontologies.github.io/deo/current/deo.html#d4e325"""@en ;
 	rdfs:label "Discourse Element"@en .
@@ -121,31 +121,32 @@ https://sparontologies.github.io/deo/current/deo.html#d4e325"""@en ;
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#Argument
 
 :Argument a owl:Class ;
-	<http://purl.org/dc/terms/description> "It represents the description of an abstract statement of the reasons for and against a proposition, which has different expressions in texts."@en ;
+	rdfs:comment "It represents the description of an abstract statement of the reasons for and against a proposition, which has different expressions in texts."^^rdfs:Literal ;
 	rdfs:label "Argument"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#Definition
 
 :Definition a owl:Class ;
-	<http://purl.org/dc/terms/description> "It represents what a philosophical concept means as defined by different authors and texts."@en ;
+	rdfs:subClassOf :Proposition ;
+	rdfs:comment "It represents what a philosophical concept means as defined by different authors and texts."@en ;
 	rdfs:label "Definition"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#ExpressionOfAProposition
 
 :ExpressionOfAProposition a owl:Class ;
-	<http://purl.org/dc/terms/description> "It refers to an expression, i.e formulation of an abstract proposition in a text."@en ;
+	rdfs:comment "It refers to an expression, i.e formulation of an abstract proposition in a text."@en ;
 	rdfs:label "Expression of a proposition"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#ExpressionOfAnArgument
 
 :ExpressionOfAnArgument a owl:Class ;
-	<http://purl.org/dc/terms/description> "It captures the expression, i.e. formulation of an abstract argument."@en ;
+	rdfs:comment "It captures the expression, i.e. formulation of an abstract argument."@en ;
 	rdfs:label "Expression of an argument"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#Proposition
 
 :Proposition a owl:Class ;
-	<http://purl.org/dc/terms/description> "It refers to a statement or opinion, judgment or belief held to be true which is made justified by arguments."@en ;
+	rdfs:comment "It refers to a statement or opinion, judgment or belief held to be true which is made justified by arguments."@en ;
 	rdfs:label "Proposition"@en .
 # 
 # http://www.w3.org/2004/02/skos/core#Concept
@@ -161,7 +162,7 @@ https://sparontologies.github.io/deo/current/deo.html#d4e325"""@en ;
 # http://xmlns.com/foaf/0.1/Agent
 
 <http://xmlns.com/foaf/0.1/Agent> a owl:Class ;
-	<http://purl.org/dc/terms/description> "An agent (eg. person, group, software or physical artifact), reused from FOAF:http://xmlns.com/foaf/spec/#term_Agent."@en ;
+	rdfs:comment "An agent (eg. person, group, software or physical artifact), reused from FOAF:http://xmlns.com/foaf/spec/#term_Agent."@en ;
 	rdfs:label "Agent"@en .
 # 
 # 
@@ -181,5 +182,18 @@ Definition:	An account of the resource.
 Comment:	Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.
 Type of Term:	Property
 Version:	http://dublincore.org/usage/terms/history/#description-006"""@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+
+_:genid1 a owl:AllDifferent ;
+	owl:distinctMembers rdf:nil .
 # 
 # Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
