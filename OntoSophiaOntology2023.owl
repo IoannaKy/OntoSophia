@@ -201,7 +201,7 @@ _:genid2 a owl:Restriction ;
 # 
 # 
 
-<http://purl.org/dc/elements/1.1/description> <http://purl.org/dc/terms/description> """Term Name:    description 
+<http://purl.org/dc/elements/1.1/description> rdfs:comment """Term Name:    description 
 URI:	http://purl.org/dc/elements/1.1/description
 Label:	Description
 Definition:	An account of the resource.
