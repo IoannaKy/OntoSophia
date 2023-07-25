@@ -37,8 +37,6 @@
 # #################################################################
 # 
 # 
-# #reusedAs
-# 
 # http://purl.org/dc/elements/1.1/subject
 
 <http://purl.org/dc/elements/1.1/subject> a owl:ObjectProperty ;
@@ -78,6 +76,14 @@ https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 	rdfs:range :ExpressionOfAProposition , :ExpressionOfAnArgument ;
 	rdfs:comment "The property includes designates that a document part, i.e. deo:DiscourseElement, contains an ExpressionOfAProposition and/or an ExpressionOfAnArgument." ;
 	rdfs:label "includes"@en .
+# 
+# http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#reusedAs
+
+:reusedAs a owl:ObjectProperty ;
+	rdfs:domain :Proposition ;
+	rdfs:range :Argument ;
+	rdfs:comment "The property reusedAs designates that a Proposition, once justified in the text, is subsequently used as an Argument in support/contrast of another proposition within the discussion."@en ;
+	rdfs:label "reusedAs"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#supports
 
@@ -207,7 +213,7 @@ Label:	Description
 Definition:	An account of the resource.
 Comment:	Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.
 Type of Term:	Property
-Version:	http://dublincore.org/usage/terms/history/#description-006"""@en .
+Version:	http://dublincore.org/usage/terms/history/#description-006"""^^xsd:string .
 # 
 # 
 # 
