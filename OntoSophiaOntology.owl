@@ -22,13 +22,12 @@
 # 
 # http://purl.org/dc/elements/1.1/description
 
-<http://purl.org/dc/elements/1.1/description> a owl:AnnotationProperty ;
-	rdfs:range rdfs:Literal ;
-	rdfs:domain :Argument , :Proposition .
+<http://purl.org/dc/elements/1.1/description> a owl:AnnotationProperty .
 # 
-# http://purl.org/dc/terms/description
+# http://purl.org/dc/elements/1.1/subject
 
-<http://purl.org/dc/terms/description> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/subject> a owl:AnnotationProperty ;
+	rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
 # 
 # 
 # 
@@ -38,13 +37,6 @@
 # #
 # #################################################################
 # 
-# 
-# http://purl.org/dc/elements/1.1/subject
-
-<http://purl.org/dc/elements/1.1/subject> a owl:ObjectProperty ;
-	rdfs:domain :Argument , :Proposition ;
-	rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> ;
-	rdfs:comment "Reused property from the Dublin Core Metadata Initiative to capture the subject of Propositions and Arguments."@en .
 # 
 # http://purl.org/spar/cito/cites
 
@@ -62,7 +54,7 @@ https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#expresses
 
-:expresses a owl:ObjectProperty ;
+:expresses a owl:ObjectProperty , owl:FunctionalProperty ;
 	rdfs:domain :ExpressionOfAProposition , :ExpressionOfAnArgument ;
 	rdfs:range :Argument , :Proposition ;
 	rdfs:label "expresses"@en .
@@ -73,6 +65,12 @@ https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 	rdfs:domain <http://purl.org/spar/deo/DiscourseElement> ;
 	rdfs:range :ExpressionOfAProposition , :ExpressionOfAnArgument ;
 	rdfs:label "includes"@en .
+# 
+# http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#reusedAs
+
+:reusedAs a owl:ObjectProperty ;
+	rdfs:comment "The property reusedAs designates that a Proposition, once justified in the text, is subsequently used as an Argument in support/contrast of another proposition within the discussion."@en ;
+	rdfs:label "reusedAs"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#supports
 
@@ -87,19 +85,6 @@ https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 	rdfs:domain <http://www.w3.org/2004/02/skos/core#Concept> ;
 	rdfs:range <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
 	rdfs:comment "Reused property from the Simple Knowledge Organization System (SKOS):https://www.w3.org/2009/08/skos-reference/skos.html."@en .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Data properties
-# #
-# #################################################################
-# 
-# 
-# http://purl.org/dc/elements/1.1/description
-
-<http://purl.org/dc/elements/1.1/description> a owl:DatatypeProperty .
 # 
 # 
 # 
@@ -121,6 +106,7 @@ https://sparontologies.github.io/deo/current/deo.html#d4e325"""@en ;
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#Argument
 
 :Argument a owl:Class ;
+	owl:disjointWith :Proposition ;
 	rdfs:comment "It represents the description of an abstract statement of the reasons for and against a proposition, which has different expressions in texts."^^rdfs:Literal ;
 	rdfs:label "Argument"@en .
 # 
@@ -134,13 +120,26 @@ https://sparontologies.github.io/deo/current/deo.html#d4e325"""@en ;
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#ExpressionOfAProposition
 
 :ExpressionOfAProposition a owl:Class ;
+	rdfs:subClassOf _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty :expresses ;
+	owl:allValuesFrom :Proposition .
+
+:ExpressionOfAProposition owl:disjointWith :ExpressionOfAnArgument ;
 	rdfs:comment "It refers to an expression, i.e formulation of an abstract proposition in a text."@en ;
 	rdfs:label "Expression of a proposition"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#ExpressionOfAnArgument
 
 :ExpressionOfAnArgument a owl:Class ;
-	rdfs:comment "It captures the expression, i.e. formulation of an abstract argument."@en ;
+	rdfs:subClassOf _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty :expresses ;
+	owl:allValuesFrom :Argument .
+
+:ExpressionOfAnArgument rdfs:comment "It captures the expression, i.e. formulation of an abstract argument."@en ;
 	rdfs:label "Expression of an argument"@en .
 # 
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#Proposition
@@ -169,31 +168,13 @@ https://sparontologies.github.io/deo/current/deo.html#d4e325"""@en ;
 # 
 # #################################################################
 # #
-# #    Annotations
-# #
-# #################################################################
-# 
-# 
-
-<http://purl.org/dc/elements/1.1/description> <http://purl.org/dc/terms/description> """Term Name:    description 
-URI:	http://purl.org/dc/elements/1.1/description
-Label:	Description
-Definition:	An account of the resource.
-Comment:	Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.
-Type of Term:	Property
-Version:	http://dublincore.org/usage/terms/history/#description-006"""@en .
-# 
-# 
-# 
-# #################################################################
-# #
 # #    General axioms
 # #
 # #################################################################
 # 
 # 
 
-_:genid1 a owl:AllDifferent ;
+_:genid3 a owl:AllDifferent ;
 	owl:distinctMembers rdf:nil .
 # 
 # Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
