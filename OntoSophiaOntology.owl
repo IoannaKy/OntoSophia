@@ -69,6 +69,8 @@ https://sparontologies.github.io/cito/current/cito.html#d4e118"""@en ;
 # http://www.semanticweb.org/ioanna/ontologies/2018/4/untitled-ontology-275#reusedAs
 
 :reusedAs a owl:ObjectProperty ;
+	rdfs:domain :Proposition ;
+	rdfs:range :Argument ;
 	rdfs:comment "The property reusedAs designates that a Proposition, once justified in the text, is subsequently used as an Argument in support/contrast of another proposition within the discussion."@en ;
 	rdfs:label "reusedAs"@en .
 # 
